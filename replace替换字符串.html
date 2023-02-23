@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // replace函数
+        // var str = '<span>我是{{name}}</span>';
+        // var pattern = /{{([a-zA-Z]+)}}/;
+        // var z = pattern.exec(str);
+        // console.log(z);
+        // str = str.replace(z[0], z[1]);
+        // console.log(str);
+        // 多次使用replace函数
+        // var str = '<div>我是{{name}}今年{{ age }}</div>';
+        // var pattern = /{{\s*([a-zA-Z]+)\s*}}/;
+        // // 第一次
+        // var z = pattern.exec(str);
+        // str = str.replace(z[0], z[1]);
+        // // 第二次
+        // z = pattern.exec(str);
+        // str = str.replace(z[0], z[1]);
+        // console.log(str);
+        // 循环使用replace函数循环
+        var str = '<div>我是{{name}}今年{{ age }}</div>';
+        var pattern = /{{\s*([a-zA-Z]+)\s*}}/;
+        var z = null;
+        while (z = pattern.exec(str)) {
+            str = str.replace(z[0], z[1]);
+        }
+        console.log(str);
+    </script>
+</body>
+
+</html>

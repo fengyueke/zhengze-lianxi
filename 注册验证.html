@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 300px;
+            outline: none;
+        }
+        
+        span {
+            font-size: 14px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <p>用户名：<br><input type="text" class="username"><span class="yname"></span></p>
+        <p>邮箱：<br><input type="text" class="email"><span class="yemail"></span></p>
+        <p>密码：<br><input type="password" class="pwd"><span class="ypwd"></span></p>
+        <p>重复密码：<br><input type="password" class="pwd2"><span class="ypwd2"></span></p>
+        <button type="submit">提交</button>
+    </form>
+    <script>
+        // 验证用户名：
+        var name1 = document.querySelector('.username');
+        console.log(name1);
+        var yname = document.querySelector('.yname');
+        console.log(yname);
+        name1.addEventListener('blur', function() {
+                if (name1.value == '') {
+                    yname.innerHTML = '用户名不能为空';
+                    yname.style.color = 'red';
+                    name1.style.border = '2px solid red';
+                } else {
+                    yname.innerHTML = '该昵称可用';
+                    yname.style.color = 'green';
+                    name1.style.border = '1px solid';
+                }
+            })
+            // 邮箱验证
+        var email = document.querySelector('.email');
+        var yemail = document.querySelector('.yemail');
+        email.addEventListener('blur', function() {
+                var reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                var t = email.value;
+                if (t != '') {
+                    if (reg.test(t)) {
+                        yemail.innerHTML = '✓ ';
+                        yemail.style.color = 'green';
+                        email.style.border = '1px solid';
+                    } else {
+                        yemail.innerHTML = '请输入正确的邮箱格式';
+                        yemail.style.color = 'red';
+                        email.style.border = '2px solid red';
+                    }
+                } else {
+                    yemail.innerHTML = '不能为空';
+                    yemail.style.color = 'red';
+                    email.style.border = '2px solid red';
+                }
+            })
+            // 密码验证
+    </script>
+</body>
+
+</html>
